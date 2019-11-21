@@ -1,0 +1,45 @@
+List off the things you want the plugin to do:
+
+Get data off of the server and write it to a file.
+This can already be accomplished by parsing the log file
+So just adding extra logging will be sufficient.
+
+
+Files:
+Trust file:
+UUID|Times Joined|Time Played In Seconds|Usernames Used|Games Won|Games Lost|Trust|Mutes|Kick Count|Banned?
+Calculate time played on disconnect/connect
+
+
+
+What kind of data shall we log?
+Player Join Event-- TIME, UUID, USERNAME
+Player Leave Event -- Append trust data to file. Compress each entry with base64 for a basic encryption (write encryption?)
+
+
+
+
+Client commands to add:
+/chktrust [player] "Displays current trust value of the selected player, gives actual value. Admin only"
+/trust [player] "Displays general trust rating. Trusted/Distrusted etc. "
+/trustwhy [player] "Gives reasons for trust value."
+/trustall "Gives trust rating for all online players. Admin only"
+/addtrust [player] "Adds to a player's trust value. Admin only"
+/subtrust [player] "Subtracts from a player's trust value. Admin only"
+/restrust [player] "Resets trust value of a player. Admin only"
+/ff "Enables forfeiting. Ratio must be at 66% or above to go through. Thorium reactor may be built near core with no penalty."
+--Your teammate(s) want(s) to forfeit [x/x] (Allows for nuking this round)
+/quickff "Immediate surrender, ratio must be 66% or higher. Your team instantly loses the game"
+--Your teammate(s) want(s) to surrender [x/x]. Your team will immediately lose.
+/report [player] "Does a check against a player's trust rating and their recent actions. If the player recently swapped teams and is immediately destroying buildings, they will be kicked or smth."
+[Server Broadcast] Hey, [playername], that's not cool. You'll be in time-out for a while.
+/mute [player] "Don't want to listen to someone? Neither do we. Implements a muting system."
+/silence [player] "Put it to a vote to silence a player from speaking for the next hour. Peace and quiet..."
+--Someone is voting to silence [playername] [x/x]. They will be unable to type in chat for one hour.
+
+
+
+
+BuildSelectEvent--
+Fired any time a building is started construction or is continued to be built. --Fires each tick that something is being built/broken
+Probably do not want to use this event for changing trust values except if thorium is built near core.
