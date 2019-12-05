@@ -4,15 +4,12 @@
 
 def ip_search():
     f = open("inet.txt", "r") #open inet.txt in reading mode
-    skip = 0 #way of skipping over undesired inets
     while(1):
         line = f.readline()
-        if("inet" in line and skip == 2): #skipping undesired ones, and then will take selected.
+        if("inet" in line):
             target = line.split()
             f.close()
             return target[1]
-        elif("inet" in line):    
-            skip += 1
 
 #creates or updates file "inet_address.txt" and writes the inet to it.
 
