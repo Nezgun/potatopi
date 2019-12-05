@@ -17,5 +17,5 @@ def ip_search():
 #creates or updates file "inet_address.txt" and writes the inet to it.
 
 f = open("inet_address.txt", "w+")
-f.write(ip_search)
+f.write(ip_search())
 f.close()
