@@ -51,13 +51,13 @@ def send_an_email(recipient):
 #
 
 def ip_search():
-    f = open("inet.txt", "r") #open inet.txt in reading mode
-    while(1):
-        line = f.readline()
-        if("inet" in line):
-            target = line.split()
-            f.close()
-            return target[1]
+    with open("inet.txt", "r") as file:
+        while(True): #screw you loops
+            ln = file.readline() #keep reading
+            if("inet" in ln and not "inet6" in ln): #make sure we aren't hitting an inet6
+                l = ln.split() #if good, put into 
+                if (not "127" in l[1]): #if not loopback
+                    return l[1] #then output
 
 #creates or updates file "inet_address.txt" and writes the inet to it.
 
@@ -66,4 +66,3 @@ f.write(ip_search())
 f.close()
 for person in recipients:
     send_an_email(person)
-
