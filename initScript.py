@@ -6,14 +6,14 @@ from email.mime.text import MIMEText
 from email.utils import formatdate
 from email import encoders
 
-recipients = ['mhoffman.cheb@gmail.com', 'jhengenius@student.monroecc.edu', 'mhoffman.cheb@mail.ru'] #recipient list
+recipients = ['email1, email2, email3'] #recipient list
 
 ### Function to send the email ###
 ##AUTHOR: Dan Aldred | Github: TeCoEd | Link https://github.com/TeCoEd | 
 ## Additional comments and modifications by Michael Hoffman
 def send_an_email(recipient):
     toaddr = recipient    #recipient
-    me = 'mhoffman.cheb@gmail.com' #sender
+    me = 'sender@gmail.com' #sender
     subject = "inet address" #subject
 
     msg = MIMEMultipart()
@@ -34,7 +34,7 @@ def send_an_email(recipient):
        s.ehlo()
        s.starttls()
        s.ehlo()
-       s.login(user = 'mhoffman.cheb@gmail.com', password = '') #includes sender email and password
+       s.login(user = 'sender@gmail.com', password = '') #includes sender email and password
        #s.send_message(msg)
        s.sendmail(me, toaddr, msg.as_string())
        s.quit()
