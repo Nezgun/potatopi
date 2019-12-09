@@ -1,0 +1,7 @@
+{
+  "name": "BuildTrust",
+  "author": "Fealtous",
+  "main": "buildtrust.BuildTrust",
+  "description": "The automated moderation plugin",
+  "version": 1.0
+}

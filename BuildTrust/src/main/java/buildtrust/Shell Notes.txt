@@ -1,0 +1,31 @@
+First task:
+
+On startup:
+Get IP given by the DHCP server
+-Will be looking at the inet address.
+-ifconfig > ipinfo.txt
+read file with python, get ip out, send file via api
+
+def ip_search():
+    with open() as file:
+        while (True):
+            line = file.readline()
+            if ("inet" in line):
+                return line.split()[0,2]
+|
+SMS Gateway https://rapidapi.com/messagebird/api/sms-gateway/details
+Send it to a device (our phones, laptop, whatever)
+|
+
+Start server
+
+
+--
+Server's Job:
+On startup, it needs to auto-host.
+
+
+
+
+
+potatopi github nezgun

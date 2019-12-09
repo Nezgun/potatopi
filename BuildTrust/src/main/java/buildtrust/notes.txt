@@ -1,0 +1,61 @@
+List off the things you want the plugin to do:
+
+Get data off of the server and write it to a file.
+This can already be accomplished by parsing the log file
+So just adding extra logging will be sufficient.
+
+
+Files:
+Trust file:
+1            2  3        4 5 6   7 8 9
+5LMYdasgAAA=,0,Fealtous.,0,0,500,0,0,false,
+
+0    1             2                3            4       5     6        7     8
+UUID|Times Joined|Usernames Used|Games Won|Games Lost|Trust|Mutes|Kick Count|Banned?
+Calculate time played on disconnect/connect
+int trust, String uuid, int wins, int losses, ArrayList<String> names, int kickcount, boolean bannedPast, boolean muted, int mutecount, int joincount)
+
+
+What kind of data shall we log?
+Player Join Event-- TIME, UUID, USERNAME (Add entry into file)
+Player Leave Event -- Make temp file Compress each entry with base64 for a basic encryption (write encryption?)
+Editing specific lines as needed
+
+
+Server Commands
+/trustall "Gives trust rating for all online players. Admin only" Complete
+/addtrust [player] "Adds to a player's trust value. Admin only" Complete
+/subtrust [player] "Subtracts from a player's trust value. Admin only" Complete
+/restrust [player] "Resets trust value of a player. Admin only" Complete
+
+Client commands to add:
+
+/trust [player] "Displays general trust rating. Trusted/Distrusted etc." Complete
+
+
+Other plugin
+/ff "Enables forfeiting. Ratio must be at 66% or above to go through. Thorium reactor may be built near core with no penalty."
+--Your teammate(s) want(s) to forfeit [x/x] (Allows for nuking this round)
+/quickff "Immediate surrender, ratio must be 66% or higher. Your team instantly loses the game"
+--Your teammate(s) want(s) to surrender [x/x]. Your team will immediately lose.
+
+We will see.
+/report [player] "Does a check against a player's trust rating and their recent actions. If the player recently swapped teams and is immediately destroying buildings, they will be kicked or smth."
+[Server Broadcast] Hey, [playername], that's not cool. You'll be in time-out for a while.
+
+
+
+Need to learn more about networking first
+/mute [player] "Don't want to listen to someone? Neither do we. Implements a muting system."
+/silence [player] "Put it to a vote to silence a player from speaking for the next hour. Peace and quiet..."
+--Someone is voting to silence [playername] [x/x]. They will be unable to type in chat for one hour.
+
+
+
+
+BuildSelectEvent--
+Fired any time a building is started construction or is continued to be built. --Fires each tick that something is being built/broken
+Probably do not want to use this event for changing trust values except if thorium is built near core.
+
+Notable:
+
